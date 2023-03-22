@@ -17,37 +17,41 @@
             }
             100%{
                 transform: translateX(500px) rotate(180deg);
-            }
+            }  
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h3>Animation 테스트</h3>
+        <h3>animation 테스트</h3>
         <button id="startBtn">시작</button>
         <br>
         <img src="images/kim1.png" id="kim">
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
-            crossorigin="anonymous"></script>
+    <!-- jquery 로딩 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+     integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+         crossorigin="anonymous"></script>
     <script>
-        // // 시작 버튼을 누르면 김구라 이미지에 moveAni 라는 키프레임이 적용되도록 해 보세요.
+        // 시작 버튼을 누르면 김구라 이미지에 moveAni 라는 키프레임이 적용되도록 해 보세요
         // document.querySelector("#startBtn").addEventListener("click", ()=>{
-        //         document.querySelector("#kim").classList.add("move");
-        //     });
+        //     document.querySelector("#kim").classList.add("move");
+        // });
 
-        // // animation 적용이 끝나면 "animationend" 라는 이름의 이벤트가 발생한다.
+        // animation 적용이 끝나면  "animationend" 라는 이름의 이벤트가 발생한다.
         // document.querySelector("#kim").addEventListener("animationend", ()=>{
-        //     // move 클래스 제거하기
+        //     //move 클래스 제거하기 
         //     document.querySelector("#kim").classList.remove("move");
         // });
 
-        // 위의 동작을 jQuery 를 이용하면?
+
+        //위의 동작을 jquery 를 이용하면 
         $("#startBtn").on("click", ()=>{
-            $("#kim").addClass("move")
+            $("#kim").addClass("move");
         });
+
         $("#kim").on("animationend", ()=>{
-            $("#kim").removeClass("move")
+            $("#kim").removeClass("move");
         });
     </script>
 </body>

@@ -8,7 +8,7 @@
     <style>
         .wrapper{
             perspective: 500px;
-            perspective-origin: 50% 0%;
+            perspective-origin: 50% 50%;
             height: 600px;
             border: 1px solid blue;
             padding-top: 100px;
@@ -64,7 +64,7 @@
 </head>
 <body>
     <div class="container">
-        <h3>3d Example 테스트</h3>
+        <h3>3d cube 테스트</h3>
         <div class="wrapper">
             <div class="cube">
                 <div>1</div>
@@ -78,11 +78,12 @@
             <button id="nextBtn">&raquo;</button>
         </nav>
     </div>
-    <!-- jquery 설정 -->
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    <!-- jquery 로딩 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+     integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
          crossorigin="anonymous"></script>
     <script>
-        let rY = 0;
+        let rY=0;
 
         //위의 버튼을 눌렀을때 .cube 를 90 도씩 y 축 기준으로 회전하도록 해 보세요.
         $("#prevBtn").click(()=>{
@@ -95,13 +96,13 @@
             $(".cube").css("transform","translateZ(-200px) rotateY("+rY+"deg)");
         });
 
-        // n 각형의 폭을 함수에 전달하면 div 를 배치할때 rotateY 값과 translateZ 가 Object 로 리턴되는 함수 
+        //n 각형의 폭을 함수에 전달하면 div 를 배치할때 rotateY 값과 translateZ 가 Object 로 리턴되는 함수 
         function getAngleNtz(n, width) {
             var angle = Math.round(360 / n);
             var tz = Math.round((width / 2) / Math.tan((angle * Math.PI) / (2 * 180)));
             var obj = {
-            angle: angle,
-            tz: tz
+                angle: angle,
+                tz: tz
             };
             return obj;
         }

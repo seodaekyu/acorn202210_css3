@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step06_3dHexagon.html</title>
+    <title>Step06_3dhexagon.html</title>
     <style>
         .wrapper{
             perspective: 500px;
@@ -26,15 +26,14 @@
             width: 400px;
             height: 400px;
             background-color: antiquewhite;
-            /* 글자를 div 의 가운데 오도록 설정 */
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 50px;
+            font-size: 100px;
             font-weight: bold;
-            /* 투명도 */
             opacity: 0.5;
         }
+
         .hexa > div:nth-child(1){
             transform: translateZ(346px);
         }
@@ -53,12 +52,6 @@
         .hexa > div:nth-child(6){
             transform: rotateY(300deg) translateZ(346px);
         }
-        /* .cube{
-            transition: trnasform 0.4s ease-out;
-        }
-        .cube:hover{
-            transform: translateZ(-200px) rotateX(45deg) rotateY(45deg)
-        } */
 
         @keyframes rotateAni{
             0%{
@@ -76,7 +69,7 @@
 </head>
 <body>
     <div class="container">
-        <h3>3d Hexagon 테스트</h3>
+        <h3>3d hexagon 테스트</h3>
         <div class="wrapper">
             <div class="hexa">
                 <div>1</div>
@@ -84,18 +77,18 @@
                 <div>3</div>
                 <div>4</div>
                 <div>5</div>
-                <div>6</div>
+                <div>6</div>    
             </div>
         </div>
     </div>
     <script>
-        // n 각형의 폭을 함수에 전달하면 div 를 배치할때 rotateY 값과 translateZ 가 Object 로 리턴되는 함수 
+        //n 각형의 폭을 함수에 전달하면 div 를 배치할때 rotateY 값과 translateZ 가 Object 로 리턴되는 함수 
         function getAngleNtz(n, width) {
             var angle = Math.round(360 / n);
             var tz = Math.round((width / 2) / Math.tan((angle * Math.PI) / (2 * 180)));
             var obj = {
-            angle: angle,
-            tz: tz
+                angle: angle,
+                tz: tz
             };
             return obj;
         }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step06_3dHexagon2.html</title>
+    <title>Step06_3dhexagon2.html</title>
     <style>
         .container{
             width: 80%;
@@ -30,22 +30,21 @@
             width: 100%;
             height: 400px;
             background-color: antiquewhite;
-            /* 글자를 div 의 가운데 오도록 설정 */
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 50px;
+            font-size: 100px;
             font-weight: bold;
-            /* 투명도 */
             opacity: 0.5;
         }
 
+        
 
     </style>
 </head>
 <body>
     <div class="container">
-        <h3>3d Hexagon2 테스트</h3>
+        <h3>3d hexagon 테스트</h3>
         <div class="wrapper">
             <div class="hexa">
                 <div>1</div>
@@ -53,51 +52,54 @@
                 <div>3</div>
                 <div>4</div>
                 <div>5</div>
-                <div>6</div>
+                <div>6</div>    
             </div>
         </div>
     </div>
-    <!-- jquery 설정 -->
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    <!-- jquery 로딩 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+     integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
          crossorigin="anonymous"></script>
     <script>
-        // 몇 각형 인지 얻어내기
-        const n = 6;
-        // 페이지 로딩 시점에 한 변의 길이가 몇인지 얻어내기
-        let width = $(".wrapper").width();
-        // 배치할 때 회전할 각도 얻어내기
-        const angle = getAngleNtz(n, width).angle;
-        
-        function init() {
-            // 배치할 때 Z 축 평행이동 값 얻어내기
-            let tz = getAngleNtz(n, width).tz;
+        // 몇 각형인지 
+        const n=6;
+        // 페이지 로딩 시점에 한변의 길이가 몇인지
+        let width=$(".wrapper").width();
+        // 배치할때 회전할 각도 얻어내기 
+        const angle=getAngleNtz(n, width).angle;
+       
+
+        function init(){
+            // 배치할때 z 축 평행이동 값 얻어내기 
+            let tz=getAngleNtz(n, width).tz;
 
             $(".hexa").css("transform", `translateZ(${-tz}px)`);
 
-            for(let i=0; i<n; i++) {
-                let nth = i+1;
-                $(`.hexa > div:nth-child(${nth})`).css("transform", `rotateY(${angle*i}deg) translateZ(${tz}px)`);
+            for(let i=0; i<n; i++){
+                let nth=i+1;
+                $(`.hexa > div:nth-child(${nth})`)
+                    .css("transform",`rotateY(${angle*i}deg) translateZ(${tz}px)`);
             }
         }
 
-        // init 함수를 호출해서 다각형 배치하기
+        // init() 함수를 호출해서 다각형 배치하기 
         init();
 
-        // 화면의 크기에 변동이 있을 때 다시 배치하기
+        // 화면이 리사이즈 되었을때 다시 배치하기
         $(window).resize(()=>{
-            // 폭을 새로 얻어와서
+            //폭을 새로 얻어와서 
             width=$(".wrapper").width();
-            // 다각형 재배치
+            //다각형 배치하기
             init();
         });
 
-        // n 각형의 폭을 함수에 전달하면 div 를 배치할때 rotateY 값과 translateZ 가 Object 로 리턴되는 함수 
+        //n 각형의 폭을 함수에 전달하면 div 를 배치할때 rotateY 값과 translateZ 가 Object 로 리턴되는 함수 
         function getAngleNtz(n, width) {
             var angle = Math.round(360 / n);
             var tz = Math.round((width / 2) / Math.tan((angle * Math.PI) / (2 * 180)));
             var obj = {
-            angle: angle,
-            tz: tz
+                angle: angle,
+                tz: tz
             };
             return obj;
         }

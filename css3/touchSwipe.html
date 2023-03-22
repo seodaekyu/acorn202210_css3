@@ -26,10 +26,11 @@
         distance : <span id="distance"></span><br/>
         coord : <span id="coord"></span>
     </div>
-    <!-- jQuery 설정 -->
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
-            crossorigin="anonymous"></script>
-    <!-- jQuery plugin javascript 설정 -->
+    <!-- jquery 로딩 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+     integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+         crossorigin="anonymous"></script>
+    <!-- jquery plugin javascript 로딩 -->     
     <script src="js/jquery.touchSwipe.js"></script>
     <script>
 
@@ -37,9 +38,9 @@
             swipeStatus:function(event, phase, direction, distance){
                 /*
                     event 는 발생한 이벤트에 대한 정보를 담고 있는 event object 이다.
-                    phase 는 위상 값
-                    direction 은 방향 값
-                    distance 는 거리 이다.
+                    phase 는 위상값
+                    direction 방향값
+                    distance 는 거리 이다. 
                 */
                 console.log(event);
                 console.log(phase);
@@ -48,22 +49,22 @@
                 $("#distance").text(distance);
                 $("#coord").text(event.x+"|"+event.y);
 
-                if(phase == "start") {
-                    // 터치 시작할때
+                if(phase=="start"){
+				    //터치 시작일때 
+				
+                }else if(phase=="move"){
+                    //터치후 움직이는 상태
 
-                }else if(phase == "move"){
-                    // 터치 후 움직이는 상태
+                }else if(phase=="cancel"){
+                    //터치하고 조금만 움직이고 띤 상태 
 
-                }else if(phase == "cancel"){
-                    // 터치하고 조금만 움직이고 띤 상태
+                }else if(phase=="end"){
+                    //터치하고 일정 역치 이상 움직이고 띤 상태 
 
-                }else if(phase == "end"){
-                    // 터치하고 일정 역치 이상 움직이고 띤 상태
-                    
                 }
             }
         });
 
-    </script>
+    </script>     
 </body>
 </html>

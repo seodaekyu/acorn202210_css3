@@ -7,7 +7,7 @@
     <title>Step04_3dTransform.html</title>
     <style>
         .wrapper{
-            /* viewer 와 object 사이의 거리 */
+            /* viewer 와 object 사이의 거리*/
             perspective: 500px;
             /* viewer 의 위치 */
             perspective-origin: 50% 50%;
@@ -20,7 +20,7 @@
             width: 200px;
             border: 1px solid red;
             transform-style: preserve-3d;
-            /* x, y, z 축이 교차하는 원점 위치 설정 */
+            /* x, y, z 축이 교차하는 원점 설정*/
             transform-origin: 50% 50%;
             transition: transform 0.4s ease-out;
         }
@@ -41,28 +41,24 @@
 </head>
 <body>
     <div class="container">
-        <h3>3d Transform 테스트</h3>
-        <!-- 3D 공간을 만들 wrapper div -->
+        <h3>3d transform 테스트</h3>
+        <!-- 3d 공간을 만들 wrapper div -->
         <div class="wrapper">
-            <!-- 3D transform 을 할 아이템 -->
+            <!-- 3d transform 을 할 아이템-->
             <div class="target" id="one">
-                <img src="images/image1.png">
+                <img src="images/image1.png"/>
             </div>
         </div>
-
-        <!-- 3D 공간을 만들 wrapper div -->
         <div class="wrapper">
-            <!-- 3D transform 을 할 아이템 -->
+            <!-- 3d transform 을 할 아이템-->
             <div class="target" id="two">
-                <img src="images/image1.png">
+                <img src="images/image1.png"/>
             </div>
         </div>
-
-        <!-- 3D 공간을 만들 wrapper div -->
         <div class="wrapper">
-            <!-- 3D transform 을 할 아이템 -->
+            <!-- 3d transform 을 할 아이템-->
             <div class="target" id="three">
-                <img src="images/image1.png">
+                <img src="images/image1.png"/>
             </div>
         </div>
     </div>

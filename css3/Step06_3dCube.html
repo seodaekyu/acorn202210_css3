@@ -26,15 +26,14 @@
             width: 400px;
             height: 400px;
             background-color: antiquewhite;
-            /* 글자를 div 의 가운데 오도록 설정 */
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 50px;
+            font-size: 100px;
             font-weight: bold;
-            /* 투명도 */
             opacity: 0.5;
         }
+
         .cube > div:nth-child(1){
             transform: translateZ(200px);
         }
@@ -53,11 +52,12 @@
         .cube > div:nth-child(6){
             transform: rotateX(-90deg) translateZ(200px);
         }
+
         /* .cube{
-            transition: trnasform 0.4s ease-out;
+            transition: transform 0.4s ease-out;
         }
         .cube:hover{
-            transform: translateZ(-200px) rotateX(45deg) rotateY(45deg)
+            transform: translateZ(-200px) rotateX(45deg) rotateY(45deg);
         } */
 
         @keyframes rotateAni{
@@ -76,7 +76,7 @@
 </head>
 <body>
     <div class="container">
-        <h3>3d Cube 테스트</h3>
+        <h3>3d cube 테스트</h3>
         <div class="wrapper">
             <div class="cube">
                 <div>1</div>
@@ -84,7 +84,7 @@
                 <div>3</div>
                 <div>4</div>
                 <div>5</div>
-                <div>6</div>
+                <div>6</div>    
             </div>
         </div>
     </div>

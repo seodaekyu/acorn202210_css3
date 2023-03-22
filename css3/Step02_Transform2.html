@@ -11,9 +11,9 @@
             height: 300px;
             border: 1px solid red;
             margin: 0 auto;
-            /* 넘친 contents 를 어떻게 할지 결정하기 */
+            /* 넘친 contents 를 어떻게 할지 결정 하기 */
             overflow: hidden;
-        }  
+        }
         #one{
             width: 300px;
             height: 300px;
@@ -31,26 +31,27 @@
         </div>
         <button id="showBtn">보이기</button>
         <button id="hideBtn">숨기기</button>
-        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
-            crossorigin="anonymous"></script>
-        <script>
-            // document.querySelector("#showBtn").addEventListener("click", ()=>{
-            //     document.querySelector("#one").style.transform="translateX(0px)";
-            // });
-
-            // document.querySelector("#hideBtn").addEventListener("click", ()=>{
-            //     document.querySelector("#one").style.transform="translateX(-300px)";
-            // });
-
-            // 위의 동작을 jQuery 를 활용하면 아래와 같다.
-            $("#showBtn").on("click", ()=>{
-                $("#one").css("transform", "translateX(0px)");
-            });
-
-            $("#hideBtn").on("click", ()=>{
-                $("#one").css("transform", "translateX(-300px)");
-            });
-        </script>
     </div>
+    <!-- jquery 로딩 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+            crossorigin="anonymous"></script>
+    <script>
+        // document.querySelector("#showBtn").addEventListener("click", ()=>{
+        //     document.querySelector("#one").style.transform="translateX(0px)";
+        // });
+        // document.querySelector("#hideBtn").addEventListener("click", ()=>{
+        //     document.querySelector("#one").style.transform="translateX(-300px)";
+        // });
+        
+        //위의 동작을 jquery 를 활용하면 아래와 같다
+        $("#showBtn").on("click", ()=>{
+            $("#one").css("transform", "translateX(0px)");
+        });
+
+        $("#hideBtn").on("click", ()=>{
+            $("#one").css("transform", "translateX(-300px)");
+        });
+    </script>
 </body>
 </html>
