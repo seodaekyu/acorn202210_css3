@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step07_Carousel.html</title>
+    <title>Step07_Carousel2.html</title>
     <style>
         .container{
             width: 80%;
@@ -30,12 +30,6 @@
             width: 100%;
             height: 400px;
             background-color: antiquewhite;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 100px;
-            font-weight: bold;
-            opacity: 0.5;
         }
         nav{
             text-align: center;
@@ -51,6 +45,10 @@
         .transition{
             transition: transform 0.4s ease-out;
         }
+
+        .carousel img{
+            width: 200px;
+        }
     </style>
 </head>
 <body>
@@ -58,7 +56,7 @@
         <h3>3d carousel 테스트</h3>
         <div class="wrapper">
             <div class="carousel">
-                   
+
             </div>
         </div>
         <nav>
@@ -75,20 +73,40 @@
     <!-- jquery plugin javascript 로딩 -->     
     <script src="js/jquery.touchSwipe.js"></script>
     <script>
+        // div 안에 출력할 sample data 
+        let items=[
+            {caption:"제목1", imagePath:"images/image1.png"},
+            {caption:"제목2", imagePath:"images/image2.png"},
+            {caption:"제목3", imagePath:"images/image3.png"},
+            {caption:"제목4", imagePath:"images/image4.png"},
+            {caption:"제목5", imagePath:"images/image5.png"},
+            {caption:"제목6", imagePath:"images/image6.png"}
+        ];
+
+        function printData(){
+            $(".carousel > div").each(function(i, itemDiv){
+                // i 는 div 의 index, itemDiv 는 div 의 참조값이 전달된다.
+                let template=`
+                    <img src="${items[i].imagePath}">
+                    <p>${items[i].caption}</p>
+                `;
+                $(itemDiv).html(template);
+            });
+        }
+
         // 몇 각형인지 
-        const n=8;
+        const n=6;
         // n 각형 만큼 div 를 동적으로 만들어서 .carousel 안에 넣기
         for(let i=0; i<n; i++){
             // div 를 만들어서 innerText 를 출력하고 .carousel 에 추가하기 
             $("<div>").text(i+1).appendTo(".carousel");
         }
 
-
         // 페이지 로딩 시점에 한변의 길이가 몇인지
         let width=$(".wrapper").width();
         // 배치할때 회전할 각도 얻어내기 
         const angle=getAngleNtz(n, width).angle;
-        
+
         //tz 값을 전역 변수로 설정
         let tz;
         // .carousel 의 회전값 
